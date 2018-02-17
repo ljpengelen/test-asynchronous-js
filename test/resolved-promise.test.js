@@ -23,7 +23,7 @@ describe("Resolved promise", function() {
   it("also passes for the right reasons", function() {
     return p.then(r => {
       expect(r).to.eql("Done before you know it");
-    })
+    });
   });
 
   it("passes for the right reasons too", function() {

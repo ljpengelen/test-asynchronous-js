@@ -31,7 +31,7 @@ describe("Side effects of promises", function() {
     delay.generateMessage();
     setTimeout(() => {
       expect(delay.message).to.eql("Resolved");
-      done()
+      done();
     });
   });
 
