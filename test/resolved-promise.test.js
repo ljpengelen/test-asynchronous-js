@@ -1,4 +1,8 @@
-const expect = require("chai").expect;
+const chaiAsPromised = require("chai-as-promised");
+const chai = require("chai");
+
+chai.use(chaiAsPromised);
+const expect = chai.expect;
 
 const p = Promise.resolve("Done before you know it");
 
@@ -20,5 +24,9 @@ describe("Promises", function() {
     return p.then(r => {
       expect(r).to.eql("Done before you know it");
     })
+  });
+
+  it("passes for the right reasons too", function() {
+    expect(p).to.eventually.become("Done before you know it");
   });
 });
