@@ -4,6 +4,7 @@
   "description": "A set of tests that demonstrate testing asynchronous JavaScript code.",
   "repository": "https://github.com/ljpengelen/test-asynchronous-js",
   "scripts": {
+    "lint": "eslint test/",
     "test": "mocha"
   },
   "author": "Luc Engelen",
@@ -11,6 +12,7 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
+    "eslint": "^4.18.0",
     "mocha": "^5.0.1"
   }
 }
