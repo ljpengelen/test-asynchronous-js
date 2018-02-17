@@ -6,7 +6,7 @@ const expect = chai.expect;
 
 const p = Promise.resolve("Done before you know it");
 
-describe("Promises", function() {
+describe("Resolved promise", function() {
   it("passes, but not for the right reasons", function() {
     p.then(r => {
       expect(r).to.eql("This is not what I want");
