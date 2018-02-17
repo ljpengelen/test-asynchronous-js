@@ -11,6 +11,14 @@ class Delay {
   generateMessage() {
     Promise.resolve("Resolved").then(r => this.message = r);
   }
+
+  generateAnotherMessage() {
+    const p = new Promise(resolve => {
+      this.message = "Pending";
+      resolve("Resolved again");
+    });
+    p.then(r => this.message = r);
+  }
 }
 
 describe("Side effects of promises", function() {
@@ -35,4 +43,14 @@ describe("Side effects of promises", function() {
     });
   });
 
+  it("passes, because promise constructor executes immediately", function(done) {
+    const delay = new Delay();
+    expect(delay.message).to.equal("Unresolved");
+    delay.generateAnotherMessage();
+    expect(delay.message).to.equal("Pending");
+    setTimeout(() => {
+      expect(delay.message).to.eql("Resolved again");
+      done();
+    });
+  });
 });
