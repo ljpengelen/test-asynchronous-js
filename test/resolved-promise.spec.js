@@ -1,12 +1,10 @@
-const chaiAsPromised = require("chai-as-promised");
-const chai = require("chai");
+import chaiAsPromised from "chai-as-promised";
 
 chai.use(chaiAsPromised);
-const expect = chai.expect;
-
-const p = Promise.resolve("Done before you know it");
 
 describe("Resolved promise", function() {
+  const p = Promise.resolve("Done before you know it");
+
   it("passes, but not for the right reasons", function() {
     p.then(r => {
       expect(r).to.eql("This is not what I want");

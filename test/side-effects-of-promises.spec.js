@@ -1,8 +1,3 @@
-const expect = require("chai").expect;
-
-let message = "Unresolved";
-Promise.resolve("Resolved").then(r => message = r);
-
 class Delay {
   constructor() {
     this.message = "Unresolved";
@@ -22,6 +17,9 @@ class Delay {
 }
 
 describe("Side effects of promises", function() {
+  let message = "Unresolved";
+  Promise.resolve("Resolved").then(r => message = r);
+
   it("passes, because promise has already been resolved", function() {
     expect(message).to.equal("Resolved");
   });
