@@ -25,7 +25,7 @@ describe("Side effects of promises", function() {
     expect(delay.message).to.eql("Resolved");
   });
 
-  it("passes, because promise did resolve", function(done) {
+  it("passes, because promise does resolve eventually", function(done) {
     const delay = new Delay();
     expect(delay.message).to.equal("Unresolved");
     delay.generateMessage();
